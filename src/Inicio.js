@@ -4,7 +4,7 @@ function Inicio() {
     return <div className='conteiner'>
         <button type="button">Aperte</button>
 
-        <h1>Inici</h1>
+        <h1>Inicio</h1>
     </div>
 }
 
