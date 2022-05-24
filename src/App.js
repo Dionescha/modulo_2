@@ -1,20 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-import Button from '@mui/material/Button';
 
+import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Home, { Teste } from './Home'
+import Inicio from './Inicio'
 
 
 
 function App() {
-  
+
   return (
-   <>
-    <Button variant="contained">outlined</Button>
-    <svg data-testid="DeleteIcon"></svg>
-    
-    <div>
-      
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="inicio" element={<Inicio />} />
+          <Route path="teste" element={<Teste />} />
+          
+
+
+
+        </Routes>
+      </BrowserRouter>,
     </>
   );
 }
