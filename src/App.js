@@ -9,6 +9,7 @@ import {
 import Home, { Teste } from './Home'
 import Inicio from './Inicio'
 
+import Catalog from './pages/Catalog/Catalog';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="inicio" element={<Inicio />} />
           <Route path="teste" element={<Teste />} />
+          <Route path="catalogo" element={<Catalog />} />
           
 
 
