@@ -6,6 +6,8 @@ import * as ApiTmbService from '../../services/apiTmdb'
 function Catalog () {
     const [popularMovies, setPopularMovies] = useState([])
 
+    const imgUrl = 'https://image.tmdb.org/t/p/w300'
+
 
 
 
@@ -15,15 +17,19 @@ function Catalog () {
 
     },[])
     return <>
-    <h1>Catalogo</h1>
-    <div>
-    <h2>Populares</h2>
-    {
-        popularMovies.map((popularMovies) => {
-            return 
-            <h5>{popularMovie.title}</h5>
+    <h1 >Catalogo</h1>
+    <div className="categoria">
+    <h2 className="categoria-titulo">Populares</h2>
+    <div className="categoria-lista">
+
+   {
+        popularMovies.map((popularMovie) => {
+            return <>
+            <img src={imgUrl + popularMovie.poster_path} alt={popularMovie.title} />
+            </>
         })
     }
+        </div>
     </div>
     </>
 }
