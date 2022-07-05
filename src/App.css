@@ -1,16 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-
-
 * {
   margin: 0;
 }
 
-
 body {
   background-color: #0f0f0f;
   font-family: 'Roboto', sans-serif;
-  color:#FFF
+  color: #FFF;
 }
 
 .categoria {
@@ -23,15 +20,43 @@ body {
 
 .categoria-lista {
   display: flex;
-  overflow-x: scroll;
-
+  overflow: hidden;
 }
 
 .categoria-lista img {
-  height: 200px;
+  height: 300px;
+  transform: scale(0.9);
+  transition: ease 0.2s;
+  border-radius: 20px;
+}
+
+.categoria-lista img:hover {
+  transform: scale(1);
+}
+
+.botao-lista {
+  height: 300px;
+  z-index: 99;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.categoria-esquerda {
+  left: 0;
+}
+
+.categoria-direita {
+  right: 0;
+}
+
+.icone {
   transform: scale(0.9);
   transition: ease 0.2s;
 }
-.categoria-lista img:hover {
-  transform: scale(1);
+
+.icone:hover {
+  transform: scale(1.2);
 }

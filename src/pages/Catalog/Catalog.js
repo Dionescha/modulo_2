@@ -1,39 +1,30 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState, useRef } from 'react'
 import * as ApiTmbService from '../../services/apiTmdb'
+import { MdOutlineArrowBackIosNew, MdOutlineArrowForwardIos } from 'react-icons/md'
+import Title from '../../components/atoms/Title'
+import List from '../../components/molecules/List'
 
+function Catalog() {
+  const [popularMovies, setPopularMovies] = useState([])
+  const listaRef = useRef()
 
+  const imgUrl = 'https://image.tmdb.org/t/p/w300'
 
-function Catalog () {
-    const [popularMovies, setPopularMovies] = useState([])
-
-    const imgUrl = 'https://image.tmdb.org/t/p/w300'
-
-
-
-
-    useEffect(() => {
-        ApiTmbService.getPopular()
-            .then((response) => setPopularMovies(response.results))
-
-    },[])
-    return <>
-    <h1 >Catalogo</h1>
-    <div className="categoria">
-    <h2 className="categoria-titulo">Populares</h2>
-    <div className="categoria-lista">
-
-   {
-        popularMovies.map((popularMovie) => {
-            return <>
-            <img src={imgUrl + popularMovie.poster_path} alt={popularMovie.title} />
-            </>
+  useEffect(() => {
+    ApiTmbService.getPopular()
+      .then((response) => {
+        const movieImgs = response.results.map((result) => {
+          return imgUrl + result.poster_path
         })
-    }
-        </div>
-    </div>
-    </>
+        console.log(movieImgs)
+        setPopularMovies(movieImgs)
+      })
+  }, [])
+
+  return <>
+    <Title>Catalogo</Title>
+    <List moviesImg={popularMovies} />
+  </>
 }
-
-
 
 export default Catalog
